@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zadanie 1 - zmiana koloru po najechaniu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .circle {
+            position: fixed;
+            width: 35px;
+            height: 35px;
+            border: 2px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .circle:nth-child(1) {
+            background-color: red;
+            top: 20px;
+            left: 20px;
+        }
+
+        .circle:nth-child(2) {
+            background-color: green;
+            left: 20px;
+            bottom: 20px;
+        }
+
+        .circle:nth-child(3) {
+            background-color: blue;
+            right: 20px;
+            top: 20px;
+        }
+
+        .circle:nth-child(4) {
+            background-color: orange;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .bg {
+            width: 100%;
+            height: 100vh;
+            background-color: gray;
+            position: relative;
+            z-index: -1;
+            transition: .8s;
+        }
+
+        .circle:nth-child(1):hover~.bg {
+            background-color: red;
+
+        }
+
+        .circle:nth-child(2):hover~.bg {
+            background-color: green;
+        }
+
+        .circle:nth-child(3):hover~.bg {
+            background-color: blue;
+        }
+
+        .circle:nth-child(4):hover+.bg {
+            background-color: orange;
+        }
+
+        p {
+            font-family: arial;
+            font-size: 45px;
+            position: absolute;
+            color: transparent;
+            line-height: 100vh;
+            transition: .8s;
+        }
+
+        p.red {
+            left: calc(50% - 100px);
+        }
+
+        .circle:nth-child(1):hover~.bg p.red {
+            color: white;
+        }
+
+        p.green {
+            left: calc(50% - 145px/2);
+        }
+
+        .circle:nth-child(2):hover~.bg p.green {
+            color: white;
+        }
+
+        p.blue {
+            left: calc(50% - 182px/2);
+        }
+
+        .circle:nth-child(3):hover~.bg p.blue {
+            color: white;
+        }
+
+        p.orange {
+            left: calc(50% - 307px/2);
+        }
+
+        .circle:nth-child(4):hover~.bg p.orange {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="red circle"></div>
+    <div class="green circle"></div>
+    <div class="blue circle"></div>
+    <div class="orange circle"></div>
+    <div class="bg">
+        <p class="red">Czerwony</p>
+        <p class="green">Zielony</p>
+        <p class="blue">Niebieski</p>
+        <p class="orange">Pomarańczowy</p>
+    </div>
+</body>
+
+</html>
